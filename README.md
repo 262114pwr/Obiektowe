@@ -1,6 +1,6 @@
 System biblioteczny<br />
 Założenia:
-1. wypożycznaie
+1. wypożyczanie
 2. wyszukiwanie
 3. zwrot
 4. logowanie
