@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h2 class="subtitle has-text-centered">Lisat ksiazek</h2>
+
+    <div class="columns">
+        {% for ksiazka in ksiazki %}
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">{{ ksiazka.title }}</p>
+                                <p class="subtitle is-6">{{ ksiazka.autor}}</p>
+                                <p class="subtitle is-6">{{ ksiazka.status }}</p>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
