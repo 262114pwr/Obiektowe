@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{% block body_block %}
+<div class="container ">
+    <div class="text-center">
+        <h1>Zaloguj się</h1>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %} 
+        <!--bootstrap django-->
+        <input type="submit" class="btn btn-success d-grid col-4 mx-auto login-btn" value="Zaloguj się">
+    </div>
+    </form>
+</div>
+
+{% endblock body_block %}
