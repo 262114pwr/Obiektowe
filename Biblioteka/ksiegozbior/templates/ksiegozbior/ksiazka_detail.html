@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="page-title ksiazka_detail jumbotron">
+        <h2>Szczegóły książki</h2>
+        <ul>
+            <li class="first_name"><b>Imie autora: </b> {{ksiazka.first_name}} </li>
+            <li class="last_name"><b>Nazwisko autora: </b> {{ksiazka.last_name}} </li>
+            <li class="title"><b>Tytuł: </b> {{ksiazka.title}} </li>
+            <li class="description"><b>Opis: </b> {{ksiazka.description}}</li>
+            <li class="catalog_number"><b>Numer katalogowy: </b> {{ksiazka.catalog_number}}</li>
+            <li class="status"><b>Status: </b> {{ksiazka.status}}</li>
+            
+        </ul>
+
+        
+        <div class="ksiazka_list_back_link button">
+            <a href="javascript:history.back()"><input type="button" class="btn btn-dark" value="Powrót"></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

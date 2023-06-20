@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block body_block %}
+<div class="container">
+    <div class="text-center">
+    <h1>Dodaj nową książkę</h1>
+    </div>
+    <form method="POST" action="{% url 'ksiegozbior:dodaj_ksiazke' %}" class="book-form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Dodaj" class="btn btn-primary">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block body_block %}
+
+<div class="container">
+<!-- Aktualne wypożyczenia -->
+<div class="collapse show" id="collapse_current_borrow">
+        {% if wypozyczenia_list.count is 0 %}
+        <br>
+        <br>
+            <div class="page-title text-center">
+                <h4>Aktualnie nie wypożyczasz żadnej książki!</h4>
+            </div>
+        {% else %}
+            <div class="page-title">
+                <h4>Twoje wypożyczenia</h4>
+            </div>
+
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Książka</th>
+                        <th scope="col">Wypożyczone przez</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for wypozyczenie in wypozyczenia_list %}
+                        <td>
+                            <a> {{ksiazka.first_name}} </a>
+                            <a> {{ksiazka.last_name}} </a>
+                            <a href="{% url 'ksiegozbior:szczegol_ksiazki'  pk=ksiazka.pk %}">{{ksiazka.title}}</a>
+                            <div class="input-group-append search-button">
+                                <button class="btn btn-primary" style="width: 200px;" type="submit">Oddaj książkę</button>
+                            </div>
+                        </td>                   
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        {% endif %}
+</div>    
+   
+</div>
+{% endblock %}

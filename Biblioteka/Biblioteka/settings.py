@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9dt7m*vne#w#@)3mr*_wr1hqq5kx)5^!v2432u*+e*4!qxa4k*
 DEBUG = True
 
 ALLOWED_HOSTS = []
-LOGIN_URL = 'login'
+LOGIN_URL = 'uzytkownicy:login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'dzieki'
 
@@ -84,6 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+       
     }
 }
 

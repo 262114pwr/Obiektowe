@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block body_block %}
+<div class="container">
+    <h1>Wypożycz książkę</h1>
+    <form method="POST" action="{% url 'ksiegozbior:wypozyczenie_create' %}" class="wypozyczenia-form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Wypożycz" class="btn btn-primary btn-large">
+    </form>
+</div>
+{% endblock %}

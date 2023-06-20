@@ -25,6 +25,11 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{% url 'ksiegozbior:lista_ksiazek' %}">Katalog online</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'ksiegozbior:wypozyczenia_list' %}">Do oddania</a>
+                </li>
+                {% endif %}
             </ul>
             <ul class="nav navbar-nav ms-auto" style= "background-color: #6910e4;">
                 {% if user.is_authenticated and user.is_superuser %}
@@ -40,22 +45,22 @@
                     </li>
                    
                     <li class="nav-item active">
-                        <a class="nav-link">Bibliotekarz {{user.first_name}} {{user.last_name}}</a>
+                        <a class="nav-link">Bibliotekarz: {{user.username}} !</a>
                     </li>
-                    <li class="nav-item active" style= "background-color: #e4107a;">
+                    <li class="nav-item active" style= "background-color: #10e4de;">
                         <a class="nav-link" href="{% url 'uzytkownicy:logout' %}">Wyloguj</a>
                     </li>
                 {% elif user.is_authenticated %}
                     <li class="nav-item active">
-                        <a class="nav-link">Witaj {{user.first_name}} {{user.last_name}}</a>
+                        <a class="nav-link">Witaj: {{user.username}} !</a>
                     </li>
 
                     <li class="nav-item active">
                     <a class="nav-link" href="{% url 'uzytkownicy:logout' %}">Wyloguj</a>
                     </li>
                 {% else %}
-                    <li class="nav-item active" style= "background-color: #e410d2;">
-                        <a class="nav-link active" href="{% url 'uzytkownicy:login' %}">Zaloguj się</a>
+                    <li class="nav-item active" style= "background-color: #8be410;">
+                        <a class="nav-link active" href="{% url 'uzytkownicy:login' %}">Zaloguj się!</a>
                     </li>
                 {% endif %}
             </ul>
