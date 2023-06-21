@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">
+        <h2>Usunąć wypożyczenie?</h2>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+            <a class="btn btn-primary" href="{% url 'ksiegozbior:wypozyczenia_list' %}">Powrót</a>
+            <input type="submit" class="btn btn-danger" value="Usuń">
+        </form>
+    </div>
+</div>
+{% endblock %}

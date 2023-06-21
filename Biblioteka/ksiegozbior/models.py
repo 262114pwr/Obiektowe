@@ -35,12 +35,9 @@ class Ksiazka(models.Model):
         return reverse('ksiegozbior:lista_ksiazek', kwargs={"pk": str(self.pk)})
 
 class Wypozyczenia(models.Model):
-    user_pk = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Wypożycz dla')
-    ksiazka_pk = models.ForeignKey(Ksiazka, on_delete=models.CASCADE, related_name="wypozyczona_ksiazka", verbose_name='Książka')
+    użytkownik = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Wypożycz dla')
+    książka = models.ForeignKey(Ksiazka, on_delete=models.CASCADE, related_name="wypozyczona_ksiazka", verbose_name='Książka')
  
-   # def __str__(self):
-   #     return "user_pk=" + self.user.pk + " ksiazka_pk= " + str(self.ksiazka_id)      
-    
 
 class UserProfileInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Użytkownik', related_name='user_profile')

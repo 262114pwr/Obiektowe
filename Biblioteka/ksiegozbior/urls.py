@@ -9,5 +9,6 @@ urlpatterns = [
     path('dodaj_ksiazke/', views.DodajKsiazkeView.as_view(), name='dodaj_ksiazke'),
     path('wypozyczenia_list/', views.WypozyczeniaListView.as_view(), name='wypozyczenia_list'),
     path('wypozyczenie_create/', views.WypozyczenieListView.as_view(), name='wypozyczenie_create'),
+    path('wypozyczenie_delete/<pk>\d+)/', views.WypozyczeniaDeleteListView.as_view(), name='wypozyczenie_delete'),
 
    ]

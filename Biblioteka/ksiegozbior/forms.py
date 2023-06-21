@@ -1,7 +1,8 @@
 from django import forms
 from ksiegozbior import models
 from django.contrib.auth.models import User
-
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class KsiazkaForm(forms.ModelForm):
     class Meta:
@@ -14,17 +15,12 @@ class KsiazkaForm(forms.ModelForm):
 
 class WypozyczeniaForm(forms.ModelForm):
 
-    
-
-        #current_user = User.username
-        #self.fields['user_pk'].choice = [[1, 'current_user']]
-
+    Użytkownik = forms.CharField()
+    Książka = forms.CharField()
 
 
     class Meta:
         model = models.Wypozyczenia
-        fields = ('user_pk', 'ksiazka_pk',)
-        
-    def __init__(self, *args, **kwargs):
-        super(WypozyczeniaForm, self).__init__(*args, **kwargs)  # wywolaj formularz najpierw żeby ustawić mu pola fields
+        fields = ('Użytkownik', 'Książka',)
 
+    

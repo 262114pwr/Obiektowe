@@ -13,26 +13,26 @@
                 <h4>Aktualnie nie wypożyczasz żadnej książki!</h4>
             </div>
         {% else %}
-            <div class="page-title">
+            <div class="page-title text-center">
                 <h4>Twoje wypożyczenia</h4>
             </div>
-
+            <br>
             <table class="table table-bordered table-striped table-hover">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Książka</th>
-                        <th scope="col">Wypożyczone przez</th>
+                        <th scope="col">Oddaj książke</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for wypozyczenie in wypozyczenia_list %}
+                    <tr>
+                        <td><a>{{wypozyczenie.książka.title}}</a></td>
                         <td>
-                            <a> {{ksiazka.first_name}} </a>
-                            <a> {{ksiazka.last_name}} </a>
-                            <a href="{% url 'ksiegozbior:szczegol_ksiazki'  pk=ksiazka.pk %}">{{ksiazka.title}}</a>
-                            <div class="input-group-append search-button">
-                                <button class="btn btn-primary" style="width: 200px;" type="submit">Oddaj książkę</button>
-                            </div>
+                            <form class="form-inline" action="{% url 'ksiegozbior:wypozyczenie_delete' pk=wypozyczenie.pk %}" method="get">
+                                    <input type="hidden" name="wypozyczenie_pk" value="{{ wypozyczenie.pk }}">
+                                    <button type="submit" class="btn btn-primary btn-sm">Oddaj książkę</button> 
+                                </form> 
                         </td>                   
                     </tr>
                     {% endfor %}
